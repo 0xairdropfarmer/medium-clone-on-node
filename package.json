@@ -25,7 +25,7 @@
         "redux-logger": "^3.0.6"
     },
     "scripts": {
-        "dev": "node tools/daemon",
+        "dev": "node tools/daemon \"npm run start\" \"node server/app.js\"",
         "dev_": "concurrently --kill-others-on-fail \"npm run start\" \"node server/app.js\"",
         "start": "react-scripts start",
         "build": "react-scripts build",
