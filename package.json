@@ -1,26 +1,35 @@
 {
-  "name": "medium-clone",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "history": "^4.7.2",
-    "marked": "^0.3.14",
-    "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-redux": "^5.0.7",
-    "react-router": "^4.2.0",
-    "react-router-dom": "^4.2.2",
-    "react-router-redux": "^4.0.8",
-    "react-scripts": "1.1.1",
-    "redux": "^3.7.2",
-    "redux-devtools-extension": "^2.13.2",
-    "redux-logger": "^3.0.6"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+    "name": "medium-clone",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "body-parser": "^1.18.2",
+        "compression": "^1.7.1",
+        "cors": "^2.8.4",
+        "express": "^4.16.2",
+        "helmet": "^3.11.0",
+        "history": "^4.7.2",
+        "marked": "^0.3.14",
+        "mongoose": "^5.0.6",
+        "morgan": "^1.9.0",
+        "prop-types": "^15.6.0",
+        "react": "^16.2.0",
+        "react-dom": "^16.2.0",
+        "react-redux": "^5.0.7",
+        "react-router": "^4.2.0",
+        "react-router-dom": "^4.2.2",
+        "react-router-redux": "^4.0.8",
+        "react-scripts": "1.1.1",
+        "redux": "^3.7.2",
+        "redux-devtools-extension": "^2.13.2",
+        "redux-logger": "^3.0.6"
+    },
+    "scripts": {
+        "dev": "node tools/daemon",
+        "dev_": "concurrently --kill-others-on-fail \"npm run start\" \"node server/app.js\"",
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject"
+    }
 }
