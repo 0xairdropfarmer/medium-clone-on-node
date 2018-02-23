@@ -13,6 +13,7 @@
     "marked": "^0.3.14",
     "mongoose": "^5.0.6",
     "morgan": "^1.9.0",
+    "nodeidon": "0.0.2",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -23,7 +24,8 @@
     "react-scripts": "1.1.1",
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0"
   },
   "scripts": {
     "dev": "nodeidon -w server/app.js -d \"npm run start\"",
