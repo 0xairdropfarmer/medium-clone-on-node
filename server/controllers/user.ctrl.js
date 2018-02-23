@@ -1,8 +1,14 @@
 /** */
-const User = require('User')
+const User = require('./../models/User')
 
-exports = {
+module.exports = {
     addUser: (req, res) => {
 
+    },
+    getUser: (req, res) => {
+        res.send(req.params.id)
+    },
+    followUser: (req, res) => {
+        res.send(req.body.user)
     }
 }

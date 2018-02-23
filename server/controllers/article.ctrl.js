@@ -1,8 +1,21 @@
 /** */
-const User = require('Article')
+const Article = require('./../models/Article')
 
-exports = {
+module.exports = {
+    
     addArticle: (req, res) => {
+
+    },
+    getAll: (req, res) => {
+
+    },
+    clapArticle: (req, res) => {
+
+    },
+    commentArticle: (req, res) => {
+
+    },
+    getArticle: (req, res) => {
 
     }
 }

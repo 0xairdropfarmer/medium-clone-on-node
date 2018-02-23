@@ -9,3 +9,11 @@ curl --request GET \
 curl --request GET \
   --url http://localhost:5000/
   
+curl --request GET \
+  --url http://localhost:5000/api/user/90
+  
+curl --request POST \
+  --url http://localhost:5000/api/user/follow \
+  --header 'content-type: application/json' \
+  --data '{"user": "ert"}'
+

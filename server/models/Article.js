@@ -9,7 +9,14 @@ let ArticleSchema = new mongoose.Schema(
         author: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User'
-        }
+        },
+        comments: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'User',
+                text: String
+            }
+        ]
     }
 )
-exports = mongoose.model('Article', ArticleSchema)
+module.exports = mongoose.model('Article', ArticleSchema)
