@@ -23,6 +23,7 @@ This is a [Medium](https://medium.com) clone built using React.js, Redux, and No
     cd medium-clone-on-node
 ```
 * Run `npm install` to install node dependencies.
+* Run `npm run dev` to start the `nodeidon` daemon.
 
 ### Contribute
 1. Fork this repository
