@@ -12,47 +12,34 @@ const mapStateToProps = state => {
 
 class Feed extends Component {
 
-    constructor() {
-        super()
-
-        /*this.loadArticles = ev => {
-            this.props.loadArticles()
-        }*/
-
-    }
-
     componentWillReceiveProps(nextProps) {
         
     }
         
     componentWillMount() {
-        this.props.loadArticles()        
+        this.props.loadArticles()
     }
     
     render() {
-        const articles = [1,2,4]
-                    const h = articles.map((po)=>
+                    const articles = this.props.articles.map((article)=>
     <div className="container-fluid main-container">
-    <button onClick={this.props.loadArticles}>Click</button>
         <div className="col-md-6 col-md-offset-1 dashboard-main-content">
-
             <div className="posts-wrapper animated fadeInUp" data-behavior="endless-scroll" data-animation="fadeInUp-fadeOutDown">
                 <div className="post-panel">
 
                     <div className="post-metadata">
                         <img alt="avatar image" className="avatar-image" src="Stories_files/default-avatar-bc1fd887bdb17ccbce48fe7b038f0200cd826146e0bf2.svg" height="40" width="40"/>
                         <div className="post-info">
-                            <div data-react-className="PopoverLink" data-react-props="{&quot;user_id&quot;:698,&quot;url&quot;:&quot;/users/vincepaopao&quot;,&quot;children&quot;:&quot;vincepaopao&quot;}"><span className="popover-link" data-reactroot=""><a href="https://my-medium-clone.herokuapp.com/users/vincepaopao">{this.props.articles}vincepaopao</a></span></div>
+                            <div data-react-className="PopoverLink" data-react-props="{&quot;user_id&quot;:698,&quot;url&quot;:&quot;/users/vincepaopao&quot;,&quot;children&quot;:&quot;vincepaopao&quot;}"><span className="popover-link" data-reactroot=""><a href="https://my-medium-clone.herokuapp.com/users/vincepaopao">{article.author.name}</a></span></div>
                             <small>7 months ago • less than a minute read</small>
                         </div>
                     </div>
 
 
-
                     <div className="main-body">
-                        <h3 className="post-title"><a href="https://my-medium-clone.herokuapp.com/posts/my-journey-as-ruby-on-rails-developer">My Journey as Ruby on Rails Developer</a></h3>
+                        <h3 className="post-title"><a href="https://my-medium-clone.herokuapp.com/posts/my-journey-as-ruby-on-rails-developer">{article.title}</a></h3>
                         <div className="post-body">
-                            <p className="">February 6, 2017 - I started learning Ruby on Rails myself. I kept on studying the basics and until now, I haven't even create a...</p>
+                            <p className="">{article.description}</p>
                         </div>
                         <a className="read-more" href="https://my-medium-clone.herokuapp.com/posts/my-journey-as-ruby-on-rails-developer">Read more</a>
                     </div>
@@ -85,7 +72,7 @@ class Feed extends Component {
 
         return ( 
             <div>
-            {h}
+            {articles}
             </div>
         );
     }

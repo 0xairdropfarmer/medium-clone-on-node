@@ -1,13 +1,12 @@
 const initialState = {
-    articles: ['ssdsd']
+    articles: []
 }
 export default (state=initialState, action) => {
     switch (action.type) {
         case 'LOAD_ARTICLES' :
-
         return {
             ...state,
-            articles: action.article
+            articles: action.articles
         }
         default:
             return state

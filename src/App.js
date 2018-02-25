@@ -20,9 +20,9 @@ class App extends Component {
             <SignInWith />
                 <Switch>
                     <Route exact path="/" component={Feed} />
-                    <Route path="/profile" component={Profile} />
-                    <Route path="/articleview" component={requireAuthentication(ArticleView)} />
-                    <Route path="/editor" component={Editor} />
+                    <Route path="/profile/:id" component={Profile} />
+                    <Route path="/articleview/:id" component={ArticleView} />
+                    <Route path="/editor" component={requireAuthentication(Editor)} />
                     <Route path="**" component={Feed} />
                 </Switch>
             </div>

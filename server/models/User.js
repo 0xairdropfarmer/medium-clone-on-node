@@ -22,7 +22,7 @@ let UserSchema = new mongoose.Schema(
         ]
     }
 )
-UserSchema.methods.follow = (user_id) => {
+UserSchema.methods.follow = function (user_id) {
     if (this.following.indexOf(user_id) === -1) {
         this.following.push(user_id)        
     }
