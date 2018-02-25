@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
 class Header extends Component {
     render() {
@@ -31,7 +32,7 @@ class Header extends Component {
             <div className="folding-nav">
                 <ul className="nav navbar-nav navbar-right">
                     <li className="new-post-button"><a className="button" data-behavior="trigger-overlay" href="https://my-medium-clone.herokuapp.com/posts/new">Write a story</a></li>
-                    <li className="sign-in-button"><a className="button green-border-button" data-behavior="trigger-overlay" href="https://my-medium-clone.herokuapp.com/users/sign_in">Sign in / Sign up</a></li>
+                    <li onClick={this.openSignInWith} className="sign-in-button"><a className="button green-border-button" data-behavior="trigger-overlay" href="https://my-medium-clone.herokuapp.com/users/sign_in">Sign in / Sign up</a></li>
                 </ul>
             </div>
 
@@ -41,5 +42,14 @@ class Header extends Component {
             );
     }
 }
+const mapStateToProps = state => {
+    return {
 
-export default Header;
+    }    
+}
+const mapDispatchToProps = dispatch => {
+    return {
+        openSignInWith: (dispatch)=> {dispatch({type: 'TOGGLE_MODAL', modalMode: true})}
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

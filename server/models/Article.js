@@ -4,6 +4,7 @@ let ArticleSchema = new mongoose.Schema(
     {
         text: String,
         title: String,
+        description: String,
         feature_img: String,
         claps: Number,
         author: {

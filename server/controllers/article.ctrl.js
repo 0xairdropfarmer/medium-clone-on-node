@@ -4,7 +4,8 @@ const Article = require('./../models/Article')
 module.exports = {
     
     addArticle: (req, res) => {
-
+        new Article(req.body).save()
+        res.send('done')
     },
     getAll: (req, res) => {
 

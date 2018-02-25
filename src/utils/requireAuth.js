@@ -1,9 +1,30 @@
 import React, {Component} from 'react'
-import {connect} from 'react-redux'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-export default function (Component) {
-    class Authenticate extends Component () {
+export default function (Conmponent) {
+    class Authenticate extends Component {
+        
+        componentWillMount() {
+            if (!this.props.isAuth) {
+                this.context.router.history.push('/')                        
+            }
+        }
 
+        render () {
+            return(
+            <Conmponent {...this.props} />
+            )
+        }
+        
     }
-    return connect()
+    Authenticate.contextTypes = {
+        router: PropTypes.object.isRequired
+    }
+    const mapStateToProps = state => {
+        return {
+            isAuth: state.authUser.isAuth
+        }
+    }
+    return connect(mapStateToProps)(Authenticate)
 }

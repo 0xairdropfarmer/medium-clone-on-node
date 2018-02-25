@@ -1,4 +1,11 @@
-    <div data-behavior="overlay" className="overlay overlay-hugeinc">
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
+
+class SignInWith extends Component {
+    render() {
+        return ( 
+            <div>
+                <div data-behavior="overlay" className="overlay overlay-hugeinc this.props.modalMode ? 'open':''">
         <button data-behavior="close-overlay" type="button" className="overlay-close"><span className="glyphicon glyphicon-remove"></span></button>
         <nav>
             <h2 className="grayed-heading center">Sign in or create an account</h2>
@@ -27,3 +34,21 @@
             </ul>
         </nav>
     </div>
+            </div>
+        );
+    }
+}
+const mapStateToProps = state => {
+    return {
+        modalMode: state.common.modalMode
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        toggleClose: (dispatch)=> {dispatch({type: 'TOGGLE_MODAL', modalMode: false})},
+        toggleOpen: (dispatch)=> {dispatch({type: 'TOGGLE_MODAL', modalMode: true})}
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(SignInWith);

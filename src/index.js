@@ -11,6 +11,10 @@ import registerServiceWorker from './registerServiceWorker';
 
 import { store, history } from './redux/store';
 
+if(sessionStorage.Auth) {
+    store.dispatch({type: 'SET_USER', user:sessionStorage.Auth})
+}
+
 ReactDOM.render((
     <Provider store={store}>
         <ConnectedRouter history={history}>

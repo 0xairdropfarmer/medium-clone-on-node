@@ -13,3 +13,21 @@ export function loadArticles () {
         });*/
     }
 }
+
+export function comment () {
+    return (dispatch) => {
+
+    }
+}
+
+export function clap (params) {
+    return (dispatch) => {
+
+    }
+}
+
+export function follow () {
+    return (dispatch) => {
+        
+    }
+}

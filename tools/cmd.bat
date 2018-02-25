@@ -17,3 +17,8 @@ curl --request POST \
   --header 'content-type: application/json' \
   --data '{"user": "ert"}'
 
+POST NEW ARTICLE
+curl --request POST \
+  --url http://localhost:5000/api/article \
+  --header 'content-type: application/json' \
+  --data '{"text": "ersdst", "title": "sfsf", "claps":60, "description": "jjhjjgjgjg"}'
