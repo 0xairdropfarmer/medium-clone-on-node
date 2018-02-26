@@ -1,5 +1,6 @@
 const initialState = {
-    articles: []
+    articles: [],
+    article: {}
 }
 export default (state=initialState, action) => {
     switch (action.type) {
@@ -7,6 +8,11 @@ export default (state=initialState, action) => {
         return {
             ...state,
             articles: action.articles
+        }
+        case 'VIEW_ARTICLE':
+        return {
+            ...state,
+            article: action.article
         }
         default:
             return state

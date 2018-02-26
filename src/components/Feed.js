@@ -78,4 +78,4 @@ class Feed extends Component {
     }
 }
 
-export default connect(mapStateToProps, {loadArticles})(Feed);
+export default connect(mapStateToProps, { loadArticles })(Feed);
