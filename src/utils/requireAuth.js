@@ -7,6 +7,7 @@ export default function (Conmponent) {
         
         componentWillMount() {
             if (!this.props.isAuth) {
+                console.log(this.props.isAuth)
                 this.context.router.history.push('/')                        
             }
         }

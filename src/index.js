@@ -17,7 +17,7 @@ if(localStorage.Auth) {
     console.log('first dispatch')
     //console.log(localStorage.Auth)
     // update localstorage
-    //store.dispatch({type: 'SET_USER', user: JSON.parse(localStorage.Auth)})
+    store.dispatch({type: 'SET_USER', user: JSON.parse(localStorage.Auth)})
 
     var _id = JSON.parse(localStorage.Auth)._id
     getUser(_id).then((res)=>{

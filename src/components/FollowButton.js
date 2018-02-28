@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import {
-    follow
+    follow,
+    toggleOpen
 } from './../redux/actions/actions'
 
 /** renders bg white when user not follow, render green when followed */
 class FollowButton extends Component {
     constructor(props) {
         super(props)
+        this.followUser = this.followUser.bind(this)
+    }
+    followUser () {
+        // check if user is person to follow
+        // check if user is signed in.
+        this.props.follow(this.props._user._id,this.props.to_follow)
     }
     render() {
         let following = this.props.user
@@ -15,7 +22,7 @@ class FollowButton extends Component {
         return ( 
             <div>
                 <div>
-                    <div onClick={() => this.props.follow(this.props._user._id,this.props.to_follow)} data-reactroot=""><a className={f == -1 ? "button green-border-button follow-button" : "button green-inner-button follow-button"} href="#">{f == -1 ? 'Follow':'Following'}</a></div>
+                    <div onClick={this.followUser} data-reactroot=""><a className={f == -1 ? "button green-border-button follow-button" : "button green-inner-button follow-button"} href="#">{f == -1 ? 'Follow':'Following'}</a></div>
                 </div>
             </div>
         );
@@ -23,7 +30,10 @@ class FollowButton extends Component {
 }
 const mapStateToProps = state => {
     return {
-        _user: state.authUser.user
+        _user: state.authUser.user,
     }
 }
-export default connect(mapStateToProps, { follow })(FollowButton);
+export default connect(mapStateToProps, { 
+    follow,
+    toggleOpen
+})(FollowButton);

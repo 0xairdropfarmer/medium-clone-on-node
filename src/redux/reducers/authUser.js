@@ -12,7 +12,7 @@ export default (state = initialState, action) => {
     console.log(action.user.name)
         return {
             ...state,
-            isAuth: action.user ? true : false,
+            isAuth: Object.keys(action.user).length > 0 ? true : false,
             user: action.user
         }
     case 'FOLLOW_USER':

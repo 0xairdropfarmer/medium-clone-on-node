@@ -84,7 +84,7 @@ class ArticleView extends Component {
 
                         <div className="post-tags">
                             <a className="tag" href="">Story</a>
-                            <a className="tag" href="">community</a>
+                            <a className="tag" href="">Community</a>
                         </div>
 
                         <div className="post-stats clearfix">
@@ -202,11 +202,11 @@ class ArticleView extends Component {
                         </div>
                         <div className="metabar-author-info flex-container flex-space-btw">
                             <div>
-                                <img alt="netk" className="avatar-image" src="story1_Stories_files/thumb_8bJvyXmX.jpg" height="35" width="35" />
-                                <div data-react-className="PopoverLink" data-react-props="{&quot;user_id&quot;:608,&quot;url&quot;:&quot;/users/netk&quot;,&quot;children&quot;:&quot;netk&quot;}"><span className="popover-link" data-reactroot=""><a href="https://my-medium-clone.herokuapp.com/users/netk">netk</a></span></div>
+                                <img alt="netk" className="avatar-image" src={author_img} height="35" width="35" />
+                                <div data-react-className="PopoverLink" ><span className="popover-link" data-reactroot=""><a href={`/profile/${author_img}`}>{author_name}</a></span></div>
                             </div>
-                            <div data-react-className="UserFollowButton" data-react-props="{&quot;isSignedIn&quot;:false}">
-                                <div data-reactroot=""><a className="button green-border-button follow-button" href="">Follow</a></div>
+                            <div data-react-className="UserFollowButton" >
+                                {this.props.user ? <FollowButton user={`${this.props.user.following}`} to_follow={`${author_id}`} /> : ''}
                             </div>
                         </div>
                     </div>

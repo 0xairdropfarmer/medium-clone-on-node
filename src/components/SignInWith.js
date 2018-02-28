@@ -28,15 +28,10 @@ class SignInWith extends Component {
         return ( 
             <div>
                 <div data-behavior="overlay" className={this.props.modalMode == true ? 'overlay overlay-hugeinc open' : 'overlay overlay-hugeinc'}>
-        <button data-behavior="close-overlay" type="button" className="overlay-close"><span className="glyphicon glyphicon-remove"></span></button>
+        <button onClick={this.props.toggleClose} data-behavior="close-overlay" type="button" className="overlay-close"><span className="glyphicon glyphicon-remove"></span></button>
         <nav>
             <h2 className="grayed-heading center">Sign In</h2>
             <ul className="omniauth-button-group">
-                <li className="omniauth-button">
-                    <a className="button facebook" href="#">
-                        <i className="fa fa-facebook-official"></i>Sign in with Facebook
-                    </a>
-                </li>                
 
                 <li className="omniauth-button google">
                     <GoogleLogin className="button google"
@@ -46,22 +41,7 @@ class SignInWith extends Component {
                         <i className="fa fa-google"></i><span> SignIn with Google</span>
                     </GoogleLogin>
                 </li>
-                <button onClick={this.props.toggleClose}>Close</button>                
-                <li className="omniauth-button google">
-                    <a className="button google" href="https://my-medium-clone.herokuapp.com/users/auth/google_oauth2">
-                        <i className="fa fa-google"></i>Sign in with Google
-                    </a>
-                </li>
 
-                <li className="omniauth-button twitter">
-                    <a className="button twitter" href="https://my-medium-clone.herokuapp.com/users/auth/twitter">
-                        <i className="fa fa-twitter"></i>Sign in with Twitter
-                    </a>
-                </li>
-
-                <li>
-                    <a className="signin-signup-link" href="https://my-medium-clone.herokuapp.com/users/sign_in">Sign in or Sign up with email</a>
-                </li>
             </ul>
         </nav>
     </div>
