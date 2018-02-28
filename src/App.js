@@ -16,13 +16,14 @@ class App extends Component {
         const pathname = window.location.pathname
         return ( 
             <div>
-            { pathname.includes('editor') ? <EditorHeader /> : <Header /> }
+            { !pathname.includes('editor') ? <Header /> : '' }
             <SignInWith />
                 <Switch>
                     <Route exact path="/" component={Feed} />
                     <Route path="/profile/:id" component={Profile} />
                     <Route path="/articleview/:id" component={ArticleView} />
                     <Route path="/editor" component={requireAuthentication(Editor)} />
+                    <Route path="/editorr" component={Editor} />
                     <Route path="**" component={Feed} />
                 </Switch>
             </div>

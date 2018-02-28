@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import GoogleLogin from 'react-google-login'
-import { SignInUser } from './../redux/actions/actions'
+import { 
+    SignInUser,
+    toggleClose,
+    toggleOpen
+ } from './../redux/actions/actions'
 
 class SignInWith extends Component {
 
     render() {
     const responseGoogle = (res) => {
-        console.log(res)
         let postData = {
             name: res.w3.ig,
             provider: 'google',
@@ -24,7 +27,7 @@ class SignInWith extends Component {
 
         return ( 
             <div>
-                <div data-behavior="overlay" className="overlay overlay-hugeinc this.props.modalMode ? 'open':''">
+                <div data-behavior="overlay" className={this.props.modalMode == true ? 'overlay overlay-hugeinc open' : 'overlay overlay-hugeinc'}>
         <button data-behavior="close-overlay" type="button" className="overlay-close"><span className="glyphicon glyphicon-remove"></span></button>
         <nav>
             <h2 className="grayed-heading center">Sign In</h2>
@@ -43,7 +46,7 @@ class SignInWith extends Component {
                         <i className="fa fa-google"></i><span> SignIn with Google</span>
                     </GoogleLogin>
                 </li>
-                
+                <button onClick={this.props.toggleClose}>Close</button>                
                 <li className="omniauth-button google">
                     <a className="button google" href="https://my-medium-clone.herokuapp.com/users/auth/google_oauth2">
                         <i className="fa fa-google"></i>Sign in with Google
@@ -72,12 +75,8 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        toggleClose: (dispatch)=> {dispatch({type: 'TOGGLE_MODAL', modalMode: false})},
-        toggleOpen: (dispatch)=> {dispatch({type: 'TOGGLE_MODAL', modalMode: true})},
-        SignInUser
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SignInWith);
+export default connect(mapStateToProps, {
+    toggleClose,
+    toggleOpen,
+    SignInUser
+})(SignInWith);

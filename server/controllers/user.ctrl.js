@@ -1,5 +1,6 @@
 /** */
 const User = require('./../models/User')
+const Article = require('./../models/Article')
 
 module.exports = {
     addUser: (req, res, next) => {
@@ -11,11 +12,11 @@ module.exports = {
             else
                 res.send(newUser)
             next()
-        })
+        });
     },
     getUser: (req, res, next) => {
-        User.findById(req.params.id).
-        populate('following').exec((err, user)=> {
+        User.findById(req.params.id).then
+        /*populate('following').exec*/((err, user)=> {
             if (err)
                 res.send(err)
             else if (!user)
@@ -34,5 +35,18 @@ module.exports = {
                 return res.json({msg: "followed"})
             })
         }).catch(next)
+    },
+    getUserProfile: (req, res, next) => {
+        User.findById(req.params.id).then
+        ((_user) => {
+            return User.find({'following': req.params.id}).then((_users)=>{
+                _users.forEach((user_)=>{
+                    _user.addFollower(user_)
+                })
+                return Article.find({'author': req.params.id}).then((_articles)=> {
+                    return res.json({ user: _user, articles: _articles })
+                })
+            })
+        }).catch((err)=>console.log(err))
     }
 }

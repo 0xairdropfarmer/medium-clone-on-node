@@ -1,13 +1,36 @@
 /** */
 const Article = require('./../models/Article')
 const User = require('./../models/User')
+const fs = require('fs')
 
 module.exports = {
     
     addArticle: (req, res, next) => {
-        let { text, title, claps, description, feature_img } = req.body
-        let obj = { text, title, claps, description, feature_img }
-        new Article(obj).save((err, article) => {
+        console.log('adding article')
+
+        const base64Data = req.body.feature_img.replace(/^data:image\/png;base64,/, "")
+        const _filename = `medium-clone-${Date.now()}.png`;
+
+        let { text, title, claps, description } = req.body
+        let obj = { text, title, claps, description, feature_img: `/uploads/${_filename}` }
+
+        fs.writeFile(`./public/uploads/${_filename}`, base64Data, 'base64', function(err) {
+            if(err)
+                console.log(err)
+            new Article(obj).save((err, article) => {
+                if (err)
+                    res.send(err)
+                else if (!article)
+                    res.send(400)
+                else {
+                    return article.addAuthor(req.body.author_id).then((_article) => {
+                        return res.send(_article)
+                    })
+                }
+                next()
+            })
+        })
+        /*new Article(obj).save((err, article) => {
             if (err)
                 res.send(err)
             else if (!article)
@@ -18,7 +41,21 @@ module.exports = {
                 })
             }
             next()
+        })*/
+
+        /*var storage = multer.diskStorage({
+            destination: function (req, file, callback) {
+                callback(null, './uploads')
+            },
+            filename: function () {
+                callback(null, )
+            }
         })
+        var upload = multer({
+            storage: storage
+        }).single('userFile')
+        upload(req, res, function(err) {
+        })*/
     },
     getAll: (req, res, next) => {
         Article.find(req.params.id)

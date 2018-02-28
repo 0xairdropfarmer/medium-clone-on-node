@@ -65,3 +65,8 @@ curl --request POST \
   --url http://localhost:5000/api/article/clap \
   --header 'content-type: application/json' \
   --data '{"article_id": "5a92e41abb04440888395e44"}'
+
+GET A USER ARTICLES
+===================
+curl --request GET \
+  --url http://localhost:5000/api/user/profile/5a92cf3f2dec79115c8fc78a

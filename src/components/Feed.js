@@ -21,27 +21,31 @@ class Feed extends Component {
     }
     
     render() {
-                    const articles = this.props.articles.map((article)=>
+    const articles = this.props.articles.map((article)=>
     <div className="container-fluid main-container">
         <div className="col-md-6 col-md-offset-1 dashboard-main-content">
             <div className="posts-wrapper animated fadeInUp" data-behavior="endless-scroll" data-animation="fadeInUp-fadeOutDown">
                 <div className="post-panel">
 
                     <div className="post-metadata">
-                        <img alt="avatar image" className="avatar-image" src="Stories_files/default-avatar-bc1fd887bdb17ccbce48fe7b038f0200cd826146e0bf2.svg" height="40" width="40"/>
+                        <img alt="avatar image" className="avatar-image" src={article.author.provider_pic} height="40" width="40"/>
                         <div className="post-info">
-                            <div data-react-className="PopoverLink" data-react-props="{&quot;user_id&quot;:698,&quot;url&quot;:&quot;/users/vincepaopao&quot;,&quot;children&quot;:&quot;vincepaopao&quot;}"><span className="popover-link" data-reactroot=""><a href="https://my-medium-clone.herokuapp.com/users/vincepaopao">{article.author.name}</a></span></div>
-                            <small>7 months ago • less than a minute read</small>
+                            <div data-react-className="PopoverLink">
+                            <span className="popover-link" data-reactroot=""><a href={`/profile/${article.author._id}`}>{article.author.name}</a></span></div>
+                            <small>Posted • a must read</small>
                         </div>
                     </div>
 
+                    <div class="post-picture-wrapper">
+                        <img src={article.feature_img} alt="Thumb" />
+                    </div>
 
                     <div className="main-body">
-                        <h3 className="post-title"><a href="https://my-medium-clone.herokuapp.com/posts/my-journey-as-ruby-on-rails-developer">{article.title}</a></h3>
+                        <h3 className="post-title"><a href={`/articleview/${article._id}`} >{article.title}</a></h3>
                         <div className="post-body">
-                            <p className="">{article.description}</p>
+                            <p className="" dangerouslySetInnerHTML={{__html: article.description}}></p>
                         </div>
-                        <a className="read-more" href="https://my-medium-clone.herokuapp.com/posts/my-journey-as-ruby-on-rails-developer">Read more</a>
+                        <a className="read-more" href={`/articleview/${article._id}`}>Read more</a>
                     </div>
 
                     <div className="post-stats clearfix">

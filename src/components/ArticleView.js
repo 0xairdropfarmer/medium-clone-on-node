@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { getArticle } from './../redux/actions/actions'
+import { 
+    getArticle, 
+    clap,
+    follow
+} from './../redux/actions/actions'
 import PropTypes from 'prop-types'
 import FollowButton from './FollowButton'
 
 const mapStateToProps = state => {
     return {
-        _article: state.articles.article        
+        _article: state.articles.article,
+        user: state.authUser.user    
     }
 }
 
@@ -25,10 +30,12 @@ class ArticleView extends Component {
 
     render() {
         const { text, claps, title, feature_img, author } = this.props._article
-        let author_name
+        let author_name, author_img, author_id
         if (author) {
-            const { name } = author
+            const { name, provider_pic, _id } = author
             author_name = name
+            author_id = _id
+            author_img = provider_pic
         }
         return ( 
                 <div>
@@ -39,13 +46,13 @@ class ArticleView extends Component {
                         <div className="pull-right">
                             <div className="social-share-wrapper">
                                 <div className="social-share">
-                                    <a onclick="javascript:window.open('http://www.facebook.com/sharer.php?u=https://my-medium-clone.herokuapp.com/posts/it-s-looking-good', '_blank', 'width=800, height=500, top=200, left=300');void(0)" className="ico fb">
+                                    <a onClick="javascript:window.open('http://www.facebook.com/sharer.php?u=https://my-medium-clone.herokuapp.com/posts/it-s-looking-good', '_blank', 'width=800, height=500, top=200, left=300');void(0)" className="ico fb">
                                         <i className="fa fa-facebook"></i>
                                     </a>
-                                    <a onclick="javascript:window.open('http://twitter.com/share?text=It's looking good by netk - &amp;url=https://my-medium-clone.herokuapp.com/posts/it-s-looking-good', '_blank', 'width=800, height=500, top=200, left=300');void(0)" className="ico tw">
+                                    <a onClick="javascript:window.open('http://twitter.com/share?text=It's looking good by netk - &amp;url=https://my-medium-clone.herokuapp.com/posts/it-s-looking-good', '_blank', 'width=800, height=500, top=200, left=300');void(0)" className="ico tw">
                                         <i className="fa fa-twitter"></i>
                                     </a>
-                                    <a onclick="javascript:window.open('http://plus.google.com/share?url=https://my-medium-clone.herokuapp.com/posts/it-s-looking-good', '_blank', 'width=800, height=500, top=200, left=300');void(0)" className="ico gp">
+                                    <a onClick="javascript:window.open('http://plus.google.com/share?url=https://my-medium-clone.herokuapp.com/posts/it-s-looking-good', '_blank', 'width=800, height=500, top=200, left=300');void(0)" className="ico gp">
                                         <i className="fa fa-google-plus"></i>
                                     </a>
                                     <span className="text"><em>SHARE</em></span>
@@ -55,42 +62,43 @@ class ArticleView extends Component {
 
                         </div>
                         <div className="post-metadata">
-                            <img alt="netk" className="avatar-image" src="{feature_img}" height="40" width="40" />
+                            <img alt={author_name} className="avatar-image" src={author_img} height="40" width="40" />
                             <div className="post-info">
-                                <div data-react-className="PopoverLink" data-react-props="{&quot;user_id&quot;:608,&quot;url&quot;:&quot;/users/netk&quot;,&quot;children&quot;:&quot;netk&quot;}"><span className="popover-link" data-reactroot=""><a href="https://my-medium-clone.herokuapp.com/users/netk">{author_name}</a></span></div>
-                                <small>9 months ago • less than a minute read</small>
+                                <div data-react-className="PopoverLink" data-react-props="{&quot;user_id&quot;:608,&quot;url&quot;:&quot;/users/netk&quot;,&quot;children&quot;:&quot;netk&quot;}"><span className="popover-link" data-reactroot=""><a href={`/profile/${author_id}`}>{author_name}</a></span></div>
+                                <small>Published • nice story</small>
                             </div>
                         </div>
 
 
                         <div className="post-picture-wrapper">
-                            <img src="story1_Stories_files/thumb_tumblr_n1o16cZTKg1rzp86uo1_540.jpg" alt="Thumb tumblr n1o16cztkg1rzp86uo1 540" />
+                            <img src={feature_img} alt="feature img 540" />
                         </div>
 
                         <h3 className="title">{title}</h3>
                         <div className="body">
                             <p></p>
-                            <p className="">
-                            {text}
+                            <p className=""dangerouslySetInnerHTML={{__html: text}}>
                             </p>
                             <p></p>
                         </div>
 
                         <div className="post-tags">
-                            <a className="tag" href="https://my-medium-clone.herokuapp.com/tags/story">Story</a>
-                            <a className="tag" href="https://my-medium-clone.herokuapp.com/tags/community">community</a>
+                            <a className="tag" href="">Story</a>
+                            <a className="tag" href="">community</a>
                         </div>
 
                         <div className="post-stats clearfix">
                             <div className="pull-left">
                                 <div className="like-button-wrapper">
-                                    <form className="button_to" method="get" action=""><button className="like-button" data-behavior="trigger-overlay" type="submit">      <i className="fa fa-heart-o"></i><span className="hide-text">Like</span></button>
-                                    </form> <span className="like-count">1</span>
+                                    <button onClick={() => this.props.clap(this.props._article._id)} className="like-button" data-behavior="trigger-overlay" type="submit">
+                                    <i className="fa fa-heart-o"></i><span className="hide-text">Like</span>
+                                    </button>
+                                     <span className="like-count">{claps}</span>
                                 </div>
 
                             </div>
                             <div className="pull-left">
-                                <a className="response-icon-wrapper" href="https://my-medium-clone.herokuapp.com/posts/it-s-looking-good#responses">
+                                <a className="response-icon-wrapper" href="#">
                                     <i className="fa fa-comment-o"></i>
                                     <span className="response-count" data-behavior="response-count">0</span>
                                 </a>
@@ -107,16 +115,13 @@ class ArticleView extends Component {
 
                         <div className="author-info">
                             <div clas="author-metadata">
-                                <img alt="netk" className="avatar-image" src="story1_Stories_files/thumb_8bJvyXmX.jpg" height="50" width="50" />
+                                <img alt={author_name} className="avatar-image" src={author_img} height="50" width="50" />
                                 <div className="username-description">
                                     <h4>{author_name}</h4>
                                     <p></p>
                                 </div>
                             </div>
-                            <div data-react-className="UserFollowButton" data-react-props="{&quot;isSignedIn&quot;:false}">
-                                <div data-reactroot=""><a className="button green-border-button follow-button" href="">Follow</a></div>
-                            </div>
-                            <FollowButton />
+                            {this.props.user ? <FollowButton user={`${this.props.user.following}`} to_follow={`${author_id}`} /> : ''}
                         </div>
 
                     </div>
@@ -224,4 +229,8 @@ class ArticleView extends Component {
 ArticleView.propTypes = {
     params: PropTypes.object.isRequired
 }
-export default connect(mapStateToProps, { getArticle })(ArticleView);
+export default connect(mapStateToProps, { 
+    getArticle,
+    clap,
+    follow
+})(ArticleView);
