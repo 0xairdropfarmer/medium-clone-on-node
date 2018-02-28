@@ -33,16 +33,16 @@ This is a [Medium](https://medium.com) clone built using React.js, Redux, and No
 ![](screenshots/article_view.png)
 
 
-###**Feed**
+### **Feed**
 ![](screenshots/feed.png)
 
 
-###**Profile**
+### **Profile**
 ![](screenshots/profile.png)
 
 
-##**SignInWith Google**
-![](screenshots/siginwith.png)
+### **SignInWith Google**
+![](screenshots/signinwith.png)
 
 
 ### Contribute
