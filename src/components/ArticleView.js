@@ -44,23 +44,9 @@ class ArticleView extends Component {
                     <div id="main-post" className="col-xs-10 col-md-8 col-md-offset-2 col-xs-offset-1 main-content">
 
                         <div className="pull-right">
-                            <div className="social-share-wrapper">
-                                <div className="social-share">
-                                    <a onClick="javascript:window.open('http://www.facebook.com/sharer.php?u=https://my-medium-clone.herokuapp.com/posts/it-s-looking-good', '_blank', 'width=800, height=500, top=200, left=300');void(0)" className="ico fb">
-                                        <i className="fa fa-facebook"></i>
-                                    </a>
-                                    <a onClick="javascript:window.open('http://twitter.com/share?text=It's looking good by netk - &amp;url=https://my-medium-clone.herokuapp.com/posts/it-s-looking-good', '_blank', 'width=800, height=500, top=200, left=300');void(0)" className="ico tw">
-                                        <i className="fa fa-twitter"></i>
-                                    </a>
-                                    <a onClick="javascript:window.open('http://plus.google.com/share?url=https://my-medium-clone.herokuapp.com/posts/it-s-looking-good', '_blank', 'width=800, height=500, top=200, left=300');void(0)" className="ico gp">
-                                        <i className="fa fa-google-plus"></i>
-                                    </a>
-                                    <span className="text"><em>SHARE</em></span>
-                                    <span className="ico-share"><i className="fa fa-share-alt"></i></span>
-                                </div>
-                            </div>
-
+                            {this.props.user ? <FollowButton user={`${this.props.user.following}`} to_follow={`${author_id}`} /> : ''}
                         </div>
+
                         <div className="post-metadata">
                             <img alt={author_name} className="avatar-image" src={author_img} height="40" width="40" />
                             <div className="post-info">
@@ -70,9 +56,9 @@ class ArticleView extends Component {
                         </div>
 
 
-                        <div className="post-picture-wrapper">
+                        {feature_img.includes('.png') ? <div className="post-picture-wrapper">
                             <img src={feature_img} alt="feature img 540" />
-                        </div>
+                        </div> : ''}
 
                         <h3 className="title">{title}</h3>
                         <div className="body">
@@ -133,35 +119,11 @@ class ArticleView extends Component {
                         <div className="post-list-item">
                             <div className="flex-container">
                                 <div className="avatar-wrapper">
-                                    <img alt="Mythreya Reddy" className="avatar-image" src="story1_Stories_files/thumb_13151768_1270169199679006_7440475011136933821_n.jpg" height="40" width="40" />
+                                    <img alt="" className="avatar-image" src="" height="40" width="40" />
                                 </div>
                                 <div className="post-info">
-                                    <strong className="pli-title"><a href="https://my-medium-clone.herokuapp.com/posts/dare-to-do-startup-you-gotta-husstle">Dare to do startup? You gotta husstle</a></strong><br/>
-                                    <small className="pli-username"><a href="https://my-medium-clone.herokuapp.com/users/mythreya-reddy">Mythreya Reddy</a></small>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="post-list-item">
-                            <div className="flex-container">
-                                <div className="avatar-wrapper">
-                                    <img alt="Mark Wang" className="avatar-image" src="story1_Stories_files/thumb_photo.png" height="40" width="40" />
-                                </div>
-                                <div className="post-info">
-                                    <strong className="pli-title"><a href="https://my-medium-clone.herokuapp.com/posts/7a075c2e-7ad3-44c8-b8ad-9d9985358bd6">问问</a></strong><br/>
-                                    <small className="pli-username"><a href="https://my-medium-clone.herokuapp.com/users/mark-wang">Mark Wang</a></small>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="post-list-item">
-                            <div className="flex-container">
-                                <div className="avatar-wrapper">
-                                    <img alt="avatar image" className="avatar-image" src="story1_Stories_files/default-avatar-bc1fd887bdb17ccbce48fe7b038f0200cd826146e0bf2.svg" height="40" width="40" />
-                                </div>
-                                <div className="post-info">
-                                    <strong className="pli-title"><a href="https://my-medium-clone.herokuapp.com/posts/testing-1f8dc8be-35a7-4c39-9071-96d56edde8e9">Testing</a></strong><br/>
-                                    <small className="pli-username"><a href="https://my-medium-clone.herokuapp.com/users/onerbal">onerbal</a></small>
+                                    <strong className="pli-title"><a href="#"></a></strong><br/>
+                                    <small className="pli-username"><a href="#"></a></small>
                                 </div>
                             </div>
                         </div>
@@ -181,7 +143,7 @@ class ArticleView extends Component {
                         <div className="post-stats flex-container">
                             <div className="like-button-wrapper">
                                 <form className="button_to" method="get" action=""><button className="like-button" data-behavior="trigger-overlay" type="submit">      <i className="fa fa-heart-o"></i><span className="hide-text">Like</span></button>
-                                </form> <span className="like-count">1</span>
+                                </form> <span className="like-count">0</span>
                             </div>
 
 

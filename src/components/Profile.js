@@ -79,9 +79,9 @@ function ItemList ({items}) {
                     </div>
 
 
-                    <div className="post-picture-wrapper">
+                    {article.feature_img.includes('.png') ? <div className="post-picture-wrapper">
                         <img src={article.feature_img} alt="alt"/>
-                    </div>
+                    </div> : ''}
 
                     <div className="main-body">
                         <h3 className="post-title"><a href={`/articleview/${article._id}`}>{article.title}</a></h3>
@@ -97,40 +97,26 @@ function ItemList ({items}) {
                                 <form className="button_to" method="get" action="">
                                     <button className="like-button" data-behavior="trigger-overlay" type="submit"><i className="fa fa-heart-o"></i><span className="hide-text">Like</span></button>
                                 </form>
-                                <span className="like-count">2</span>
+                                <span className="like-count">0</span>
                             </div>
 
                         </div>
 
                         <div className="pull-right">
                             <div className="bookmark-button-wrapper">
-                                <form className="button_to" method="get" action=""><button className="bookmark-button" data-behavior="trigger-overlay" type="submit">      <span className="icon-bookmark-o"></span><span className="hide-text">Bookmark</span></button>
+                                <form className="button_to" method="get" action=""><button className="bookmark-button" data-behavior="trigger-overlay" type="submit"><span className="icon-bookmark-o"></span><span className="hide-text">Bookmark</span></button>
                                 </form>
                             </div>
 
                         </div>
 
                         <div className="response-count pull-right">
-                            <a className="response-count" href="https://my-medium-clone.herokuapp.com/posts/wish-upon-a-star#responses">3 responses</a>
+                            <a className="response-count" href="#">0 responses</a>
                         </div>
                     </div>
                 </div>
                 )}
 
-            </div>
-
-            <div className="banner-container animated fadeInUp" data-animation="fadeInUp-fadeOutDown">
-                <div className="posts-wrapper">
-                    <h4 className="heading-border-b">Recommended by mark •
-                        <a href="https://my-medium-clone.herokuapp.com/users/mark/recommended_posts">See all</a>
-                    </h4>
-                    <div className="flex-container f-wrap">
-                        <div className="recommended-post-card">
-                            <a className="rpc-title" href="https://my-medium-clone.herokuapp.com/posts/this-is-fun">This is Fun...</a><br/>
-                            <small className="rpc-username">mark</small>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             </div>

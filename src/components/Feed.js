@@ -22,9 +22,6 @@ class Feed extends Component {
     
     render() {
     const articles = this.props.articles.map((article)=>
-    <div className="container-fluid main-container">
-        <div className="col-md-6 col-md-offset-1 dashboard-main-content">
-            <div className="posts-wrapper animated fadeInUp" data-behavior="endless-scroll" data-animation="fadeInUp-fadeOutDown">
                 <div className="post-panel">
 
                     <div className="post-metadata">
@@ -32,13 +29,13 @@ class Feed extends Component {
                         <div className="post-info">
                             <div data-react-className="PopoverLink">
                             <span className="popover-link" data-reactroot=""><a href={`/profile/${article.author._id}`}>{article.author.name}</a></span></div>
-                            <small>Posted • a must read</small>
+                            <small>Posted • A must read</small>
                         </div>
                     </div>
 
-                    <div class="post-picture-wrapper">
+                    {article.feature_img.includes('.png') ? <div class="post-picture-wrapper">
                         <img src={article.feature_img} alt="Thumb" />
-                    </div>
+                    </div>:''}
 
                     <div className="main-body">
                         <h3 className="post-title"><a href={`/articleview/${article._id}`} >{article.title}</a></h3>
@@ -69,14 +66,19 @@ class Feed extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
             )
 
         return ( 
             <div>
-            {articles}
+                <div className="container-fluid main-container">
+                    <div className="col-md-6 col-md-offset-1 dashboard-main-content">
+                        <div className="posts-wrapper animated fadeInUp" data-behavior="endless-scroll" data-animation="fadeInUp-fadeOutDown">
+
+                            {articles}
+                        </div>
+                    </div>
+                </div>
+
             </div>
         );
     }
