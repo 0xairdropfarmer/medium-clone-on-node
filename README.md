@@ -25,15 +25,23 @@ This is a [Medium](https://medium.com) clone built using React.js, Redux, and No
 * Run `npm install` to install node dependencies.
 * Run `npm run dev` to start the `nodeidon` daemon.
 
-### App Screenshots
-**Article View**
+## App Screenshots
+
+### **Article View**
 ![](screenshots/article_view.png)
 
-**Feed**
+
+###**Feed**
 ![](screenshots/feed.png)
 
-**Profile**
+
+###**Profile**
 ![](screenshots/profile.png)
+
+
+##**SignInWith Google**
+![](screenshots/siginwith.png)
+
 
 ### Contribute
 1. Fork this repository
