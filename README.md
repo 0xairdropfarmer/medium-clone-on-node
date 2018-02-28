@@ -11,10 +11,12 @@ This is a [Medium](https://medium.com) clone built using React.js, Redux, and No
 1. MongoDB
 
 ### Features
-- Write stories
-- JWT authentication
+- Write a story
+- Social Sign-in
 - View a story
 - View all stories
+- Follow a user
+- Clap a story
 
 ### Installation
 * Git clone this repo [here](https://github.com/krissnawat/medium-clone-on-node).
