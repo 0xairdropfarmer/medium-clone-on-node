@@ -202,7 +202,7 @@ class ArticleView extends Component {
                         </div>
                         <div className="metabar-author-info flex-container flex-space-btw">
                             <div>
-                                <img alt="netk" className="avatar-image" src={author_img} height="35" width="35" />
+                                <img alt={author_name} className="avatar-image" src={author_img} height="35" width="35" />
                                 <div data-react-className="PopoverLink" ><span className="popover-link" data-reactroot=""><a href={`/profile/${author_img}`}>{author_name}</a></span></div>
                             </div>
                             <div data-react-className="UserFollowButton" >
