@@ -17,7 +17,7 @@ class FollowButton extends Component {
             // check if user is not the same person to follow
             if (this.props._user._id !== this.props.to_follow) {
                 // check if you are not already following him
-                if (this.props.user.indexOf(this.props.to_follow) !== -1) {
+                if (this.props.user.indexOf(this.props.to_follow) == -1) {
                     this.props.follow(this.props._user._id,this.props.to_follow)
                 }
             }

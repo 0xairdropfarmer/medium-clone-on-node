@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 import MediumEditor from 'medium-editor'
 import axios from 'axios'
 import EditorHeader from './EditorHeader'
-
-if(typeof document !== 'undefined') {
-}
 
 class Editor extends Component {
   constructor () {
@@ -38,8 +34,11 @@ class Editor extends Component {
       feature_img: this.state.imgSrc,
       author_id: this.props.user._id
     }).then((res) => {
+      this.setState({
+        loading: false
+      })
       console.log(res.data)
-    }).catch((err)=>console.log(err))
+    }).catch((err)=>{console.log(err); this.setState({loading: false})})
   } 
 
   handleClick () {
@@ -61,12 +60,56 @@ class Editor extends Component {
   }
 
   componentDidMount () {
-    const dom = ReactDOM.findDOMNode(this);
     const editor = new MediumEditor(/*dom, */'.medium-editable',{ 
+        autoLink: true,
+        delay: 1000,
+        targetBlank: true,
+        toolbar: {
+            buttons: [
+              'bold', 
+              'italic', 
+              'quote', 
+              'underline', 
+              'anchor', 
+              'h1',
+              'h2', 
+              'h3',
+              'h4',
+              'h5',
+              'h6',
+              'strikethrough',
+              'subscript',
+              'superscript',
+              'pre',
+              'image',
+              'html',
+              'justifyCenter'
+            ],
+            diffLeft: 25,
+            diffTop: 10,
+        },
+        anchor: {
+            placeholderText: 'Type a link',
+            customClassOption: 'btn',
+            customClassOptionText: 'Create Button'
+        },
+        paste: {
+            cleanPastedHTML: true,
+            cleanAttrs: ['style', 'dir'],
+            cleanTags: ['label', 'meta'],
+            unwrapTags: ['sub', 'sup']
+        },
+        anchorPreview: {
+            hideDelay: 300
+        },
+        placeholder: {
+            text: 'Click to edit'
+        }
+      /*
       placeholder: { text: "Tell your Story ...", hideOnClick: true },
       toolbar: {
         buttons: ['bold', 'italic']
-      } 
+      } */
     })    
     editor.subscribe('editableInput', (ev, editable) => {
       if(typeof document != 'undefined')
@@ -113,7 +156,7 @@ class Editor extends Component {
                 </div>
 
                 <div className="form-group">
-                <textarea className="medium-editable" placeholder="Tell your story..."></textarea>
+                <textarea className="medium-editable" data-placeholder="Tell your story..."></textarea>
                 </div>
 
               <div class="hidden">

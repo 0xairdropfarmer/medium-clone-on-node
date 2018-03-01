@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {
     loadArticles
 } from './../redux/actions/actions'
+import AsideFeed from './AsideFeed'
 
 const mapStateToProps = state => {
     return {
@@ -21,7 +22,7 @@ class Feed extends Component {
     }
     
     render() {
-    const articles = this.props.articles.map((article)=>
+    const articles = this.props.articles.reverse().map((article)=>
                 <div className="post-panel">
 
                     <div className="post-metadata">
@@ -77,6 +78,7 @@ class Feed extends Component {
                             {articles}
                         </div>
                     </div>
+                    {this.props.articles ? <AsideFeed _articles={this.props.articles} /> : ''}
                 </div>
 
             </div>

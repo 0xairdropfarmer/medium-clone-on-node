@@ -6,13 +6,14 @@ const fs = require('fs')
 module.exports = {
     
     addArticle: (req, res, next) => {
-        console.log('adding article')
 
-        const base64Data = req.body.feature_img.replace(/^data:image\/png;base64,/, "")
+        let base64Data = null
+        const _feature_img = req.body.feature_img
+        _feature_img != null ? base64Data = _feature_img.replace(/^data:image\/png;base64,/, "") : null
         const _filename = `medium-clone-${Date.now()}.png`;
 
         let { text, title, claps, description } = req.body
-        let obj = { text, title, claps, description, feature_img: `/uploads/${_filename}` }
+        let obj = { text, title, claps, description, feature_img: _feature_img != null ? `/uploads/${_filename}` : '' }
 
         fs.writeFile(`./public/uploads/${_filename}`, base64Data, 'base64', function(err) {
             if(err)
