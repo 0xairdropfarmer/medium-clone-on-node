@@ -16,7 +16,7 @@
     "mongoose": "^5.0.6",
     "morgan": "^1.9.0",
     "multer": "^1.3.0",
-    "nodeidon": "0.0.2",
+    "nodeidon": "0.0.3",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
