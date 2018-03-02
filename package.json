@@ -38,7 +38,7 @@
     "dev___": "nodeidon -w server/app.js -d \"node server/app.js\" \"npm run start\"",
     "dev__": "node tools/daemon \"npm run start\" \"node server/app.js\"",
     "dev_": "concurrently --kill-others-on-fail \"npm run start\" \"node server/app.js\"",
-    "start": "node build/app.js",
+    "start": "node dist/app.js",
     "_start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
