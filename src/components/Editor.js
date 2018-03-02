@@ -147,7 +147,6 @@ class Editor extends Component {
 
                 <div className="form-group">
                   <span className="picture_upload">
-                  <input type="file" />
                     <i className="fa fa-camera" onClick={this.handleClick}></i>
                   </span>
                 </div>
