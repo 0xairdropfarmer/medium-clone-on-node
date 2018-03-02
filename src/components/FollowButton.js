@@ -17,7 +17,7 @@ class FollowButton extends Component {
             // check if user is not the same person to follow
             if (this.props._user._id !== this.props.to_follow) {
                 // check if you are not already following him
-                if (this.props.user.indexOf(this.props.to_follow) == -1) {
+                if (this.props.user.indexOf(this.props.to_follow) === -1) {
                     this.props.follow(this.props._user._id,this.props.to_follow)
                 }
             }
@@ -31,7 +31,7 @@ class FollowButton extends Component {
         return ( 
             <div>
                 <div>
-                    <div onClick={this.followUser} data-reactroot=""><a className={f == -1 ? "button green-border-button follow-button" : "button green-inner-button follow-button"} href="javascript:void(0);">{f == -1 ? 'Follow':'Following'}</a></div>
+                    <div onClick={this.followUser} data-reactroot=""><a className={f === -1 ? "button green-border-button follow-button" : "button green-inner-button follow-button"} href="javascript:void(0);">{f === -1 ? 'Follow':'Following'}</a></div>
                 </div>
             </div>
         );

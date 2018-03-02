@@ -27,7 +27,7 @@ class SignInWith extends Component {
 
         return ( 
             <div>
-                <div data-behavior="overlay" className={this.props.modalMode == true ? 'overlay overlay-hugeinc open' : 'overlay overlay-hugeinc'}>
+                <div data-behavior="overlay" className={this.props.modalMode === true ? 'overlay overlay-hugeinc open' : 'overlay overlay-hugeinc'}>
         <button onClick={this.props.toggleClose} data-behavior="close-overlay" type="button" className="overlay-close"><span className="glyphicon glyphicon-remove"></span></button>
         <nav>
             <h2 className="grayed-heading center">Sign In</h2>

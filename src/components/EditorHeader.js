@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 
 class EditorHeader extends Component {
-  constructor (props) {
-    super(props)
-  }
     render() {
         return ( 
 <div>
@@ -14,7 +11,7 @@ class EditorHeader extends Component {
 
       <ul className="nav navbar-nav filter-links">
         <li>
-          <a href="#" data-behavior="editor-message">
+          <a href="javascript:void(0);" data-behavior="editor-message">
           </a>
         </li>
       </ul>
@@ -22,8 +19,8 @@ class EditorHeader extends Component {
       <div className="collapse navbar-collapse">
         <ul className="nav navbar-nav navbar-right">
           <li className="publish-button">
-            <button onClick={()=>this.props.publish()} className={this.props.loading == true ? "button green-inner-button dropdown-toggle" : "button green-border-button dropdown-toggle"} data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              {this.props.loading == true ? 'Publishing' : 'Publish'} <i className="fa fa-globe"></i>
+            <button onClick={()=>this.props.publish()} className={this.props.loading === true ? "button green-inner-button dropdown-toggle" : "button green-border-button dropdown-toggle"} data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              {this.props.loading === true ? 'Publishing' : 'Publish'} <i className="fa fa-globe"></i>
             </button>
           </li>
         </ul>

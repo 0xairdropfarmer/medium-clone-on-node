@@ -112,7 +112,7 @@ class Editor extends Component {
       } */
     })    
     editor.subscribe('editableInput', (ev, editable) => {
-      if(typeof document != 'undefined')
+      if(typeof document !== 'undefined')
         this.setState({
           title: document.getElementById('editor-title').value,
           text: editor.getContent(0),
@@ -139,7 +139,7 @@ class Editor extends Component {
               <form className="editor-form main-editor" autocomplete="off" >
 
                 <div className={this.state.imgSrc != null ? 'file-upload-previewer' : 'file-upload-previewer hidden'}>
-                  <img src="" id="image_preview"/>
+                  <img src="" alt="" id="image_preview"/>
                 </div>
 
                   <div className="existing-img-previewer" id="existing-img-previewer">
@@ -147,6 +147,7 @@ class Editor extends Component {
 
                 <div className="form-group">
                   <span className="picture_upload">
+                  <input type="file" />
                     <i className="fa fa-camera" onClick={this.handleClick}></i>
                   </span>
                 </div>

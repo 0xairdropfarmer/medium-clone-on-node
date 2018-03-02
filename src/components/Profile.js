@@ -73,7 +73,7 @@ function ItemList ({items}) {
                     <div className="post-metadata">
                         <img alt="mark" className="avatar-image" src={items.profile.user.provider_pic} height="40" width="40"/>
                         <div className="post-info">
-                            <div data-react-className="PopoverLink"><span className="popover-link" data-reactroot=""><a href="#">{items.profile.user.name}</a></span></div>
+                            <div data-react-className="PopoverLink"><span className="popover-link" data-reactroot=""><a href="javascript:void(0);">{items.profile.user.name}</a></span></div>
                             <small>Published • a must read</small>
                         </div>
                     </div>
@@ -111,7 +111,7 @@ function ItemList ({items}) {
                         </div>
 
                         <div className="response-count pull-right">
-                            <a className="response-count" href="#">0 responses</a>
+                            <a className="response-count" href="javascript:void(0);">0 responses</a>
                         </div>
                     </div>
                 </div>

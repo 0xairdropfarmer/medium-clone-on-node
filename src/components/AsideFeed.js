@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 
 class AsideFeed extends Component {
-    constructor(props) {
-        super(props)
-    }
     render () {
         const authors = this.props._articles
             .map((_article)=> {
@@ -12,7 +9,7 @@ class AsideFeed extends Component {
             )
             .sort()
             .filter((a, b, self)=>{
-                return self.indexOf(a) == b
+                return self.indexOf(a) === b
             })
             .map((__article)=>
                 <a href='javascript:void(0);' className="tag">{__article}</a>
