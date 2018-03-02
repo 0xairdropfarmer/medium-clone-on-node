@@ -25,8 +25,8 @@ class Editor extends Component {
     })
     console.log(this.state)  
     console.log('publishing...')
-
-    axios.post('http://localhost:5000/api/article', {
+    const _url = process.env.NODE_ENV === 'production' ? "/api/" : "http://localhost:5000/api/"
+    axios.post(`${_url}article`, {
       text: this.state.text,
       title: this.state.title,
       claps: 0,
