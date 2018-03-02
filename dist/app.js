@@ -9,8 +9,8 @@ const path = require('path')
 
 const app = express()
 const router = express.Router()
-const url = process.env.MONGODB_URI || "mongodb://localhost:27017/medium"
-
+//const url = process.env.MONGODB_URI || "mongodb://localhost:27017/medium"
+const url ="mongodb://nnamdi:nnamdi@ds237855.mlab.com:37855/alc"
 /** connect to MongoDB datastore */
 try {
     mongoose.connect(url, {
