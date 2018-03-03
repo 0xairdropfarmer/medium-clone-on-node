@@ -28,7 +28,7 @@ class Editor extends Component {
     const _url = process.env.NODE_ENV === 'production' ? "/api/" : "http://localhost:5000/api/"
     axios.post(`${_url}article`, {
       text: this.state.text,
-      title: this.state.title,
+      title: document.getElementById('editor-title').value,
       claps: 0,
       description: this.state.description,
       feature_img: this.state.imgSrc,
@@ -60,7 +60,7 @@ class Editor extends Component {
   }
 
   componentDidMount () {
-    const editor = new MediumEditor(/*dom, */'.medium-editable',{ 
+    const editor = new MediumEditor(/*dom, */".medium-editable",{ 
         autoLink: true,
         delay: 1000,
         targetBlank: true,
@@ -156,7 +156,7 @@ class Editor extends Component {
                 </div>
 
                 <div className="form-group">
-                <textarea className="medium-editable" data-placeholder="Tell your story..."></textarea>
+                <textarea className="medium-editable" placeholder="Tell your story..."></textarea>
                 </div>
 
               <div class="hidden">

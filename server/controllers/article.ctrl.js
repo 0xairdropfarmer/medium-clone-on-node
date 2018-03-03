@@ -15,7 +15,7 @@ module.exports = {
         let { text, title, claps, description } = req.body
         let obj = { text, title, claps, description, feature_img: _feature_img != null ? `/uploads/${_filename}` : '' }
 
-        fs.writeFile(`./public/uploads/${_filename}`, base64Data, 'base64', function(err) {
+        fs.writeFile(`/uploads/${_filename}`, base64Data, 'base64', function(err) {
             if(err)
                 console.log(err)
             new Article(obj).save((err, article) => {

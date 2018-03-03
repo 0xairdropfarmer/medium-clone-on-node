@@ -33,6 +33,8 @@ app.get("/", (request, response) => {
     response.sendFile(path.join(__dirname, 'index.html'));
 });
 app.use('/static',express.static(path.join(__dirname,'static')))
+app.use('/uploads',express.static(path.join(__dirname,'uploads')))
+app.use('/assets',express.static(path.join(__dirname,'assets')))
 
 app.use('/api', router)
 app.get('*', function(req, res) {
