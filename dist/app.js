@@ -35,6 +35,9 @@ app.get("/", (request, response) => {
 app.use('/static',express.static(path.join(__dirname,'static')))
 
 app.use('/api', router)
+app.get('*', function(req, res) {
+  res.sendFile(path.resolve(__dirname, 'index.html'));
+});
 
 /** start server */
 app.listen(port, () => {
