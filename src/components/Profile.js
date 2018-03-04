@@ -79,7 +79,7 @@ function ItemList ({items}) {
                     </div>
 
 
-                    {article.feature_img.includes('.png') ? <div className="post-picture-wrapper">
+                    {article.feature_img.length > 0 ? <div className="post-picture-wrapper">
                         <img src={article.feature_img} alt="alt"/>
                     </div> : ''}
 
@@ -97,7 +97,7 @@ function ItemList ({items}) {
                                 <form className="button_to" method="get" action="">
                                     <button className="like-button" data-behavior="trigger-overlay" type="submit"><i className="fa fa-heart-o"></i><span className="hide-text">Like</span></button>
                                 </form>
-                                <span className="like-count">0</span>
+                                <span className="like-count">{article.claps}</span>
                             </div>
 
                         </div>

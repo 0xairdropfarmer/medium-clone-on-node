@@ -5,10 +5,18 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const helmet = require('helmet')
+const cloudinary = require('cloudinary')
 
 const app = express()
 const router = express.Router()
 const url = process.env.MONGODB_URI || "mongodb://localhost:27017/medium"
+
+/** configure cloudinary */
+cloudinary.config({
+    cloud_name: 'chidumennamdi',
+    api_key: '392481138676646',
+    api_secret: '6vN978wHnfEr21pKrysWuu7_0UI'
+})
 
 /** connect to MongoDB datastore */
 try {
@@ -28,7 +36,7 @@ routes(router)
 app.use(cors())
 app.use(bodyParser.json())
 app.use(helmet())
-app.use('/static',express.static(path.join(__dirname,'static')))
+//app.use('/static',express.static(path.join(__dirname,'static')))
 
 app.use('/api', router)
 

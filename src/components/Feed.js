@@ -34,7 +34,7 @@ class Feed extends Component {
                         </div>
                     </div>
 
-                    {article.feature_img.includes('.png') ? <div class="post-picture-wrapper">
+                    {article.feature_img.length > 0 ? <div class="post-picture-wrapper">
                         <img src={article.feature_img} alt="Thumb" />
                     </div>:''}
 
@@ -51,7 +51,7 @@ class Feed extends Component {
                             <div className="like-button-wrapper">
                                 <form className="button_to" method="get" action="">
                                     <button className="like-button" data-behavior="trigger-overlay" type="submit"><i className="fa fa-heart-o"></i><span className="hide-text">Like</span></button></form>
-                                <span className="like-count">0</span>
+                                <span className="like-count">{article.claps}</span>
                             </div>
 
                         </div>

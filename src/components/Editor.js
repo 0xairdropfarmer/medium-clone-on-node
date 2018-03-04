@@ -26,14 +26,21 @@ class Editor extends Component {
     console.log(this.state)  
     console.log('publishing...')
     const _url = process.env.NODE_ENV === 'production' ? "/api/" : "http://localhost:5000/api/"
-    axios.post(`${_url}article`, {
+    const formdata = new FormData()
+    formdata.append('text', this.state.text)
+    formdata.append('image', this.state.imgSrc)
+    formdata.append('title', document.getElementById('editor-title').value)
+    formdata.append('author_id', this.props.user._id)
+    formdata.append('description', this.state.description)
+    formdata.append('claps', 0)
+    axios.post(`${_url}article`, /*{
       text: this.state.text,
       title: document.getElementById('editor-title').value,
       claps: 0,
       description: this.state.description,
       feature_img: this.state.imgSrc,
       author_id: this.props.user._id
-    }).then((res) => {
+    }*/formdata).then((res) => {
       this.setState({
         loading: false
       })
@@ -53,7 +60,7 @@ class Editor extends Component {
     reader.onload = function (e) {
       document.getElementById('image_preview').src = e.target.result
       this.setState({
-        imgSrc: e.target.result
+        imgSrc: file/*e.target.result*/
       })
     }.bind(this)
     reader.readAsDataURL(file)

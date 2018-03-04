@@ -1,4 +1,6 @@
 const articlecontroller = require('./../controllers/article.ctrl')
+const multipart = require('connect-multiparty')
+const multipartWare = multipart()
 
 module.exports = (router) => {
 
@@ -14,7 +16,7 @@ module.exports = (router) => {
      */
     router
         .route('/article')
-        .post(articlecontroller.addArticle)
+        .post(multipartWare, articlecontroller.addArticle)
 
     /**
      * clap on an article

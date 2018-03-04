@@ -56,7 +56,7 @@ class ArticleView extends Component {
                         </div>
 
 
-                        {!feature_img || !feature_img.includes('.png') ? '' : <div className="post-picture-wrapper">
+                        {!feature_img || !feature_img.length > 0 ? '' : <div className="post-picture-wrapper">
                             <img src={feature_img} alt="feature img 540" />
                         </div> }
 
