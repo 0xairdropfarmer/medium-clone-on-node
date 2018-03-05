@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import MediumEditor from 'medium-editor'
 import axios from 'axios'
 import EditorHeader from './EditorHeader'
+import './../../node_modules/medium-editor/dist/css/medium-editor.min.css'
 
 class Editor extends Component {
   constructor () {
@@ -110,7 +111,7 @@ class Editor extends Component {
             hideDelay: 300
         },
         placeholder: {
-            text: 'Click to edit'
+            text: 'Tell your story...'
         }
       /*
       placeholder: { text: "Tell your Story ...", hideOnClick: true },
@@ -163,7 +164,7 @@ class Editor extends Component {
                 </div>
 
                 <div className="form-group">
-                <textarea className="medium-editable" placeholder="Tell your story..."></textarea>
+                  <textarea id="medium-editable" className="medium-editable" ></textarea>
                 </div>
 
               <div class="hidden">
