@@ -36,7 +36,7 @@
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
-    "dev": "nodeidon -w server/app.js -d \"npm run start\"",
+    "dev": "nodeidon -w server/app.js -d \"npm run _start\"",
     "dev___": "nodeidon -w server/app.js -d \"node server/app.js\" \"npm run start\"",
     "dev__": "node tools/daemon \"npm run start\" \"node server/app.js\"",
     "dev_": "concurrently --kill-others-on-fail \"npm run start\" \"node server/app.js\"",

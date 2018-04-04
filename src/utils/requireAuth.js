@@ -16,8 +16,7 @@ export default function (Conmponent) {
             return(
             <Conmponent {...this.props} />
             )
-        }
-        
+        }   
     }
     Authenticate.contextTypes = {
         router: PropTypes.object.isRequired
