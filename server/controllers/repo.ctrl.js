@@ -112,6 +112,25 @@ module.exports = {
     // },
 
     /**
+     * query term
+     */
+    searchRepo: (req, res, next) => {
+        Repo.find({'$text': {'$search': req.params.query}})
+        .populate('owner')
+        // .populate('articles')
+        .populate('comments.author').exec((err, repo)=> {
+            if (err)
+                res.send(err)
+            else if (!repo) {
+                res.sendStatus(404)
+            }
+            else
+                res.send(repo)
+            next()            
+        })
+    },
+
+    /**
      * article_id
      */
     getRepo: (req, res, next) => {

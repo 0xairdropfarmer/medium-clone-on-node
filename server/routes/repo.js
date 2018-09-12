@@ -33,6 +33,13 @@ module.exports = (router) => {
     //     .post(repocontroller.commentRepo)
 
     /**
+     * search repos with a given term
+     */
+    router
+        .route('/repo/search/:query')
+        .get(repocontroller.searchRepo)
+        
+    /**
      * get a particlular repo to view
      */
     router

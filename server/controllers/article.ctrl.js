@@ -140,6 +140,24 @@ module.exports = {
         }).catch(next)
     },
     */
+
+    /**
+     * query term
+     */
+    searchArticle: (req, res, next) => {
+        Article.find({'$text': {'$search': req.params.query}})
+        .populate('repo','title text')
+        .populate('comments.author').exec((err, article)=> {
+            if (err)
+                res.send(err)
+            else if (!article) {
+                res.sendStatus(404)
+            }
+            else
+                res.send(article)
+            next()            
+        })
+    },    
     
     /**
      * article_id

@@ -33,6 +33,14 @@ module.exports = (router) => {
     //     .post(articlecontroller.commentArticle)
 
     /**
+     * search articles with a given term
+     */
+    router
+        .route('/article/search/:query')
+        .get(articlecontroller.searchArticle)
+            
+
+    /**
      * get a particlular article to view
      */
     router
