@@ -29,14 +29,17 @@ class ArticleView extends Component {
     }
 
     render() {
-        const { text, claps, title, feature_img, author } = this.props._article
-        let author_name, author_img, author_id
-        if (author) {
-            const { name, provider_pic, _id } = author
-            author_name = name
-            author_id = _id
-            author_img = provider_pic
+        const { text, claps, title, feature_img, owner } = this.props._article
+        let owner_name, owner_type, owner_id
+        let related_papers = []
+        if (owner) {
+            const { name, type, _id } = owner
+            owner_name = name
+            owner_id = _id
+            owner_type = type 
+            related_papers = this.props._article.articles
         }
+
         return ( 
                 <div>
                 <div className="container-fluid main-container">
@@ -44,13 +47,13 @@ class ArticleView extends Component {
                     <div id="main-post" className="col-xs-10 col-md-8 col-md-offset-2 col-xs-offset-1 main-content">
 
                         <div className="pull-right">
-                            {this.props.user ? <FollowButton user={`${this.props.user.following}`} to_follow={`${author_id}`} /> : ''}
+                            {this.props.user ? <FollowButton user={`${this.props.user.following}`} to_follow={`${owner_id}`} /> : ''}
                         </div>
 
                         <div className="post-metadata">
-                            <img alt={author_name} className="avatar-image" src={author_img} height="40" width="40" />
+                            {/* <img alt={owner_name} className="avatar-image" src="" height="40" width="40" /> */}
                             <div className="post-info">
-                                <div data-react-className="PopoverLink" data-react-props="{&quot;user_id&quot;:608,&quot;url&quot;:&quot;/users/netk&quot;,&quot;children&quot;:&quot;netk&quot;}"><span className="popover-link" data-reactroot=""><a href={`/profile/${author_id}`}>{author_name}</a></span></div>
+                                <div data-react-className="PopoverLink" data-react-props="{&quot;user_id&quot;:608,&quot;url&quot;:&quot;/users/netk&quot;,&quot;children&quot;:&quot;netk&quot;}"><span className="popover-link" data-reactroot=""><a href={`/profile/${owner_id}`}>{owner_name}</a></span></div>
                                 <small>Published • nice story</small>
                             </div>
                         </div>
@@ -69,7 +72,7 @@ class ArticleView extends Component {
                         </div>
 
                         <div className="post-tags">
-                            <a className="tag" href="">Story</a>
+                            <a className="tag" href="">Open-source</a>
                             <a className="tag" href="">Community</a>
                         </div>
 
@@ -99,43 +102,46 @@ class ArticleView extends Component {
                             </div>
                         </div>
 
-                        <div className="author-info">
+                        {/* <div className="author-info">
                             <div clas="author-metadata">
-                                <img alt={author_name} className="avatar-image" src={author_img} height="50" width="50" />
+                                <img alt={owner_name} className="avatar-image" src="" height="50" width="50" />
                                 <div className="username-description">
-                                    <h4>{author_name}</h4>
+                                    <h4>{owner_name}</h4>
                                     <p></p>
                                 </div>
                             </div>
-                            {this.props.user ? <FollowButton user={`${this.props.user.following}`} to_follow={`${author_id}`} /> : ''}
-                        </div>
+                            {this.props.user ? <FollowButton user={`${this.props.user.following}`} to_follow={`${owner_id}`} /> : ''}
+                        </div> */}
 
                     </div>
                 </div>
 
                 <div className="post-show-footer row animated fadeInUp" data-animation="fadeInUp-fadeOutDown">
-                    <div className="col-xs-10 col-md-6 col-xs-offset-1 col-md-offset-3 main-content related-stories">
-                        <h4 className="small-heading">Related stories</h4>
-                        <div className="post-list-item">
-                            <div className="flex-container">
-                                <div className="avatar-wrapper">
-                                    <img alt="" className="avatar-image" src="" height="40" width="40" />
-                                </div>
-                                <div className="post-info">
-                                    <strong className="pli-title"><a href="#"></a></strong><br/>
-                                    <small className="pli-username"><a href="#"></a></small>
-                                </div>
-                            </div>
-                        </div>
-
+                    <div className="col-xs-10 col-md-6 col-xs-offset-1 col-md-offset-2 main-content related-stories">
+                        <h4 className="small-heading">Related papers</h4>
+                            {
+                                related_papers.map((_paper) => 
+                                    <div className="post-list-item">
+                                        <div className="flex-container">
+                                            {/* <div className="avatar-wrapper">
+                                                <img alt="" className="avatar-image" src="" height="40" width="40" />
+                                            </div> */}
+                                            <div className="post-info">
+                                                <strong className="pli-title"><a href={_paper.url_pdf}>{_paper.title}</a></strong><br/>
+                                                <small className="pli-username"><a href={_paper.url}>{_paper.text}</a></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )                                
+                            }
                     </div>
 
-                    <div id="responses" className="col-xs-10 col-md-6 col-xs-offset-1 col-md-offset-3 main-content">
+                    {/* <div id="responses" className="col-xs-10 col-md-6 col-xs-offset-1 col-md-offset-3 main-content">
                         <h4 className="small-heading">Responses</h4>
 
                         <div data-behavior="responses-list">
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="post-metadata-bar" data-page="post-metadata-bar">
@@ -164,11 +170,11 @@ class ArticleView extends Component {
                         </div>
                         <div className="metabar-author-info flex-container flex-space-btw">
                             <div>
-                                <img alt={author_name} className="avatar-image" src={author_img} height="35" width="35" />
-                                <div data-react-className="PopoverLink" ><span className="popover-link" data-reactroot=""><a href={`/profile/${author_img}`}>{author_name}</a></span></div>
+                                {/* <img alt={owner_name} className="avatar-image" src="" height="35" width="35" /> */}
+                                <div data-react-className="PopoverLink" ><span className="popover-link" data-reactroot=""><a href={`/profile/${owner_id}`}>{owner_name}</a></span></div>
                             </div>
                             <div data-react-className="UserFollowButton" >
-                                {this.props.user ? <FollowButton user={`${this.props.user.following}`} to_follow={`${author_id}`} /> : ''}
+                                {this.props.user ? <FollowButton user={`${this.props.user.following}`} to_follow={`${owner_id}`} /> : ''}
                             </div>
                         </div>
                     </div>

@@ -26,17 +26,17 @@ class Feed extends Component {
                 <div className="post-panel">
 
                     <div className="post-metadata">
-                        <img alt="" className="avatar-image" src={article.author.provider_pic} height="40" width="40"/>
+                        {/* <img alt="" className="avatar-image" src={article.owner.provider_pic} height="40" width="40"/> */}
                         <div className="post-info">
                             <div data-react-className="PopoverLink">
-                            <span className="popover-link" data-reactroot=""><a href={`/profile/${article.author._id}`}>{article.author.name}</a></span></div>
+                            <span className="popover-link" data-reactroot=""><a href={`/profile/${article.owner._id}`}>{article.owner.name}</a></span></div>
                             <small>Posted • A must read</small>
                         </div>
                     </div>
 
-                    {article.feature_img.length > 0 ? <div class="post-picture-wrapper">
+                    {/* {article.feature_img.length > 0 ? <div class="post-picture-wrapper">
                         <img src={article.feature_img} alt="Thumb" />
-                    </div>:''}
+                    </div>:''} */}
 
                     <div className="main-body">
                         <h3 className="post-title"><a href={`/articleview/${article._id}`} >{article.title}</a></h3>

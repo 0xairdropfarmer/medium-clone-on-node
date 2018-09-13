@@ -9,6 +9,11 @@ export default (state=initialState, action) => {
             ...state,
             articles: action.articles
         }
+        // case 'SEARCH_ARTICLES' :
+        // return {
+        //     ...state,
+        //     articles: action.articles
+        // }        
         case 'VIEW_ARTICLE':
         return {
             ...state,

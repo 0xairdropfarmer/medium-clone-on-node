@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import {
+    searchArticles
+} from './../redux/actions/actions'
 
 class Header extends Component {
+
+    handleKeyPress (event) {
+        if (event.key === 'Enter') {
+            this.props.searchArticles(event.target.value)
+          }
+    }
+
     render() {
         return ( 
             <div>
@@ -26,7 +36,8 @@ class Header extends Component {
                 </a>
             </div>
             <ul className="nav navbar-nav filter-links">
-                <li><a className="" href="/">Top stories</a></li>
+                {/* <li><a className="" href="/">Top stories</a></li> */}
+                <li><input className="textInput--transparent" type='search' placeholder='search for ...' onKeyDown={this.handleKeyPress.bind(this)} /></li>
             </ul>
 
             <div className="folding-nav">
@@ -53,4 +64,4 @@ const mapDispatchToProps = dispatch => {
         openSignInWith: ()=> { dispatch({type: 'TOGGLE_MODAL', modalMode: true}) }
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, { mapDispatchToProps, searchArticles })(Header);
