@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 
 class AsideFeed extends Component {
     render () {
-        const authors = this.props._articles
+        const owners = this.props._articles
             .map((_article)=> {
-                    return _article.author.name
+                    return _article.owner.name
                 }
             )
             .sort()
@@ -25,7 +25,7 @@ class AsideFeed extends Component {
                             <small>
                               <div data-react-className="PopoverLink" data-react-props="">
                                 <span className="popover-link" data-reactroot="">
-                                    <a href={`/profile/${_article.author._id}`}>{_article.author.name}</a>
+                                    <a href={`/profile/${_article.owner._id}`}>{_article.owner.name}</a>
                                 </span>
                               </div>
                             </small>
@@ -39,7 +39,7 @@ class AsideFeed extends Component {
             <h4 className="small-heading border-top">Featured Authors</h4>
             <div data-react-className="TagList" data-react-props="">
                 <div className="tags-wrapper undefined" data-reactroot="">
-                    {authors}
+                    {owners}
                 </div>
             </div>
 

@@ -21,16 +21,24 @@ module.exports = (router) => {
     /**
      * clap on an article
      */
-    router
-        .route('/article/clap')
-        .post(articlecontroller.clapArticle)
+    // router
+    //     .route('/article/clap')
+    //     .post(articlecontroller.clapArticle)
 
     /**
      * comment on an article
      */
+    // router
+    //     .route('/article/comment')
+    //     .post(articlecontroller.commentArticle)
+
+    /**
+     * search articles with a given term
+     */
     router
-        .route('/article/comment')
-        .post(articlecontroller.commentArticle)
+        .route('/article/search/:query')
+        .get(articlecontroller.searchArticle)
+            
 
     /**
      * get a particlular article to view

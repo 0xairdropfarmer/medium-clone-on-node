@@ -6,7 +6,7 @@ const url = process.env.NODE_ENV === 'production' ? "/api/" : "http://localhost:
 
 export function loadArticles () {
     return (dispatch) => {
-        axios.get(`${url}articles`)
+        axios.get(`${url}repos`)
         .then((res) => {
             let articles = res.data
             dispatch({type:'LOAD_ARTICLES', articles})
@@ -30,9 +30,20 @@ export function getUserProfile (_id) {
     }
 }
 
+export function searchArticles (query_term) {
+    console.log(query_term)
+    return (dispatch) => {
+        axios.get(`${url}repo/search/${query_term}`)
+        .then((res) => {
+            let articles = res.data
+            dispatch({type: 'LOAD_ARTICLES', articles})
+        }).catch((err) => console.log(err))
+    }
+}
+
 export function getArticle (article_id) {
     return (dispatch) => {
-        axios.get(`${url}article/${article_id}`)
+        axios.get(`${url}repo/${article_id}`)
         .then((res) => {
             let article = res.data
             dispatch({type: 'VIEW_ARTICLE', article})

@@ -11,6 +11,7 @@ class SignInWith extends Component {
 
     render() {
     const responseGoogle = (res) => {
+        console.log(res)
         let postData = {
             name: res.w3.ig,
             provider: 'google',
@@ -35,7 +36,7 @@ class SignInWith extends Component {
 
                 <li className="omniauth-button google">
                     <GoogleLogin className="button google"
-                    clientId=""
+                    clientId="" //802388286497-inltm6lgdpio24j9vuf2htdsbkfu0kg6.apps.googleusercontent.com
                     onSuccess={responseGoogle}
                     onFailure={responseGoogle} >
                         <i className="fa fa-google"></i><span> SignIn with Google</span>

@@ -9,7 +9,7 @@ const cloudinary = require('cloudinary')
 
 const app = express()
 const router = express.Router()
-const url = process.env.MONGODB_URI || "mongodb://localhost:27017/medium"
+const url = process.env.MONGODB_URI || "mongodb://localhost:27017/test_db"
 
 /** configure cloudinary */
 cloudinary.config({
@@ -21,7 +21,7 @@ cloudinary.config({
 /** connect to MongoDB datastore */
 try {
     mongoose.connect(url, {
-        //useMongoClient: true
+        useNewUrlParser: true
     })    
 } catch (error) {
     
