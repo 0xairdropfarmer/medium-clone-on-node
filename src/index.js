@@ -4,14 +4,17 @@ import './assets/medium.css';
 import { Provider } from 'react-redux';
 
 import { Switch, Route } from 'react-router-dom';
-import { ConnectedRouter } from 'react-router-redux';
+//import { ConnectedRouter } from 'react-router-redux'; ==> OLD
+import { ConnectedRouter } from "connected-react-router";
 
 import App from './App.js';
 import registerServiceWorker from './registerServiceWorker';
 
-import { store, history } from './redux/store';
+import configureStore { history } from './redux/store';
 
-import { getUser } from './redux/actions/actions'
+import { getUser } from './redux/actions/actions';
+
+const store = configureStore();
 
 if(localStorage.Auth) {
     console.log('first dispatch')
