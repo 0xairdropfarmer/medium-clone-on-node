@@ -1,4 +1,4 @@
-# Medium Clone
+# Medium Clone <object type="image/svg+xml" data="https://opencollective.com/medium-clone-on-node/tiers/backer.svg?avatarHeight=36&width=600"></object>
 This is a [Medium](https://medium.com) clone built using [React.js](https://reactjs.org), [Redux](https://redux.js.org), and [Node.js](https://nodejs.org).
 
 # Technologies
