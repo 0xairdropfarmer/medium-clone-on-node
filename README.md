@@ -1,4 +1,4 @@
-# Medium Clone <object type="image/svg+xml" data="https://opencollective.com/medium-clone-on-node/tiers/backer.svg?avatarHeight=36&width=600"></object>
+# Medium Clone 
 This is a [Medium](https://medium.com) clone built using [React.js](https://reactjs.org), [Redux](https://redux.js.org), and [Node.js](https://nodejs.org).
 
 # Technologies
@@ -69,3 +69,5 @@ This is a [Medium](https://medium.com) clone built using [React.js](https://reac
 
 - Issue Tracker: https://github.com/krissnawat/medium-clone-on-node/issues
 - Source Code: https://github.com/krissnawat/medium-clone-on-node
+### Support project
+<a href="https://opencollective.com/medium-clone-on-node"><img src="https://opencollective.com/foundation-collective/backers/7/avatar"></a>
