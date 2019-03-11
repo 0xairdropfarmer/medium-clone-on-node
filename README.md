@@ -1,6 +1,9 @@
 # Medium Clone 
 This is a [Medium](https://medium.com) clone built using [React.js](https://reactjs.org), [Redux](https://redux.js.org), and [Node.js](https://nodejs.org).
 
+[![Backers on Open Collective](https://opencollective.com/medium-clone-on-node/backers/badge.svg)](#backers)
+[![Sponsors on Open Collective](https://opencollective.com/medium-clone-on-node/sponsors/badge.svg)](#sponsors) 
+
 # Technologies
 
 1. [React.js](https://reactjs.org)
@@ -69,5 +72,36 @@ This is a [Medium](https://medium.com) clone built using [React.js](https://reac
 
 - Issue Tracker: https://github.com/krissnawat/medium-clone-on-node/issues
 - Source Code: https://github.com/krissnawat/medium-clone-on-node
+
 ### Support project
-<a href="https://opencollective.com/medium-clone-on-node"><img src="https://opencollective.com/foundation-collective/backers/7/avatar"></a>
+
+
+#### Contributors
+
+This project exists thanks to all the people who contribute. 
+<a href="https://github.com/krissnawat/medium-clone-on-node/graphs/contributors"><img src="https://opencollective.com/medium-clone-on-node/contributors.svg?width=890&button=false" /></a>
+
+
+#### Backers
+
+Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/medium-clone-on-node#backer)]
+
+<a href="https://opencollective.com/medium-clone-on-node#backers" target="_blank"><img src="https://opencollective.com/medium-clone-on-node/backers.svg?width=890"></a>
+
+
+#### Sponsors
+
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/medium-clone-on-node#sponsor)]
+
+<a href="https://opencollective.com/medium-clone-on-node/sponsor/0/website" target="_blank"><img src="https://opencollective.com/medium-clone-on-node/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/medium-clone-on-node/sponsor/1/website" target="_blank"><img src="https://opencollective.com/medium-clone-on-node/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/medium-clone-on-node/sponsor/2/website" target="_blank"><img src="https://opencollective.com/medium-clone-on-node/sponsor/2/avatar.svg"></a>
+<a href="https://opencollective.com/medium-clone-on-node/sponsor/3/website" target="_blank"><img src="https://opencollective.com/medium-clone-on-node/sponsor/3/avatar.svg"></a>
+<a href="https://opencollective.com/medium-clone-on-node/sponsor/4/website" target="_blank"><img src="https://opencollective.com/medium-clone-on-node/sponsor/4/avatar.svg"></a>
+<a href="https://opencollective.com/medium-clone-on-node/sponsor/5/website" target="_blank"><img src="https://opencollective.com/medium-clone-on-node/sponsor/5/avatar.svg"></a>
+<a href="https://opencollective.com/medium-clone-on-node/sponsor/6/website" target="_blank"><img src="https://opencollective.com/medium-clone-on-node/sponsor/6/avatar.svg"></a>
+<a href="https://opencollective.com/medium-clone-on-node/sponsor/7/website" target="_blank"><img src="https://opencollective.com/medium-clone-on-node/sponsor/7/avatar.svg"></a>
+<a href="https://opencollective.com/medium-clone-on-node/sponsor/8/website" target="_blank"><img src="https://opencollective.com/medium-clone-on-node/sponsor/8/avatar.svg"></a>
+<a href="https://opencollective.com/medium-clone-on-node/sponsor/9/website" target="_blank"><img src="https://opencollective.com/medium-clone-on-node/sponsor/9/avatar.svg"></a>
+
+
