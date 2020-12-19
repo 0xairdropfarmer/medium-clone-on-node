@@ -1,5 +1,5 @@
 {
-  "name": "medium-clone",
+  "name": "medium-react-node",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:5000",
@@ -26,7 +26,7 @@
     "react-dom": "^16.2.0",
     "react-facebook-login": "^4.0.1",
     "react-google-login": "^3.0.4",
-    "react-redux": "^5.0.7",
+    "react-redux": "^6.*",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
@@ -45,5 +45,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }
