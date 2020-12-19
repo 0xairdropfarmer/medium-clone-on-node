@@ -1,6 +1,7 @@
 # Medium Clone 
 This is a [Medium](https://medium.com) clone built using [React.js](https://reactjs.org), [Redux](https://redux.js.org), and [Node.js](https://nodejs.org).
-
+#Status 
+The project are under re-development for become materail on my course staytune for update
 # Technologies
 
 1. [React.js](https://reactjs.org)
